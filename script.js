@@ -19,41 +19,47 @@ function getComputerChoice() {
 // Remember to be careful not to call the function in different places
 
 
+let playerSelection = prompt('Please enter your choice');
+if (playerSelection !== null) {
+  playGame(playerSelection, getComputerChoice() )
+} else {
+  alert('Refresh page!');
+}
 
-let playerSelection = (prompt('Please Enter you choice')).toUpperCase();
-
-
-function playGame(playerSelection, computerSelection) { 
+  function playGame(playerSelection, computerSelection) { 
+   
   computerSelection = getComputerChoice();
+  playerSelection = playerSelection.toUpperCase();
+
     if (playerSelection === "ROCK" && computerSelection === 'SCISSORS') {
     console.log('Computer chose Scissors and you chose Rock. You win! Rock beats Scissors');
 
 }   else if (playerSelection === "PAPER" &&      computerSelection === 'SCISSORS') {
     console.log('Computer chose Scissors and you chose Paper. You lose! Scissors beats Paper');
 
-} else if (playerSelection === "SCISSORS" && computerSelection === 'ROCK') {
+}   else if (playerSelection === "SCISSORS" && computerSelection === 'ROCK') {
   console.log('Computer chose Rock and you chose Scissors. You lose! Rock beats Scissors');
 
-} else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
+}   else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
   console.log('Computer chose Paper and you chose Rock. You lose! Paper beats Rock');
 
-} else if (playerSelection === "PAPER" && computerSelection === 'ROCK') {
+}   else if (playerSelection === "PAPER" && computerSelection === 'ROCK') {
   console.log('Computer chose Rock and you chose Paper. You win! Paper beats Rock');
 
-} else if (playerSelection === "SCISSORS" && computerSelection === 'PAPER') {
+}   else if (playerSelection === "SCISSORS" &&    computerSelection === 'PAPER') {
   console.log('Computer chose Paper and you chose Scissors. You win! Scissors beats Paper');
   
-} else if (playerSelection === computerSelection) {
+}   else if (playerSelection === computerSelection) {
   console.log(`Computer chose ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} and you chose ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}. It\'s a tie!`);
-}
+} 
 
-else {
-  console.log("Please enter a choice of 'Rock', 'Paper', or 'Scissors'");
+  else { 
+    alert("Please enter a choice of 'Rock', 'Paper', or 'Scissors'");
 }
    
 }
 
-playGame(playerSelection, getComputerChoice() )
+
 
 
 
