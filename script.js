@@ -4,13 +4,12 @@
 
 function getComputerChoice() {
   let compChoices = [];
-  const choice1 = 'Rock';
-  const choice2 = 'Paper';
-  const choice3 = 'Scissors';
+  const choice1 = 'ROCK';
+  const choice2 = 'PAPER';
+  const choice3 = 'SCISSORS';
   compChoices.push(choice1, choice2, choice3);
   let computerSelection = compChoices[Math.floor(Math.random() * compChoices.length)];
   return computerSelection
-  
 }
 
 
@@ -26,26 +25,30 @@ let playerSelection = (prompt('Please Enter you choice')).toUpperCase();
 
 function playGame(playerSelection, computerSelection) { 
   computerSelection = getComputerChoice();
-    if (playerSelection === "ROCK" && computerSelection === 'Scissors') {
+    if (playerSelection === "ROCK" && computerSelection === 'SCISSORS') {
     console.log('Computer chose Scissors and you chose Rock. You win! Rock beats Scissors');
 
-}   else if (playerSelection === "PAPER" &&                computerSelection === 'Scissors') {
+}   else if (playerSelection === "PAPER" &&      computerSelection === 'SCISSORS') {
     console.log('Computer chose Scissors and you chose Paper. You lose! Scissors beats Paper');
 
-} else if (playerSelection === "SCISSORS" && computerSelection === 'Rock') {
+} else if (playerSelection === "SCISSORS" && computerSelection === 'ROCK') {
   console.log('Computer chose Rock and you chose Scissors. You lose! Rock beats Scissors');
 
-} else if (playerSelection === "ROCK" && computerSelection === "Paper") {
+} else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
   console.log('Computer chose Paper and you chose Rock. You lose! Paper beats Rock');
 
-} else if (playerSelection === "PAPER" && computerSelection === 'Rock') {
+} else if (playerSelection === "PAPER" && computerSelection === 'ROCK') {
   console.log('Computer chose Rock and you chose Paper. You win! Paper beats Rock');
 
-} else if (playerSelection === "SCISSORS" && computerSelection === 'Paper') {
+} else if (playerSelection === "SCISSORS" && computerSelection === 'PAPER') {
   console.log('Computer chose Paper and you chose Scissors. You win! Scissors beats Paper');
+  
+} else if (playerSelection === computerSelection) {
+  console.log(`Computer chose ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} and you chose ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}. It\'s a tie!`);
+}
 
-} else {
-  console.log(`Computer chose ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()} and you chose ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}. It\'s a tie!`);
+else {
+  console.log("Please enter a choice of 'Rock', 'Paper', or 'Scissors'");
 }
    
 }
