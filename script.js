@@ -2,11 +2,7 @@
 
 // create function to get a random choice by computer
   function getComputerChoice() {
-    let compChoices = []; 
-    const choice1 = 'ROCK'; 
-    const choice2 = 'PAPER';
-    const choice3 = 'SCISSORS';
-    compChoices.push(choice1, choice2, choice3); 
+    let compChoices = ['ROCK', 'PAPER', 'SCISSORS']; 
     let computerSelection = compChoices[Math.floor(Math.random() * compChoices.length)]; 
     return computerSelection; 
 }
