@@ -64,12 +64,13 @@
       }
       }
     } 
-
+    //this block just makes printed result grammatically correct
       if (playerTally.length === 1) {
       console.log(`You scored ${playerTally.length} point.`);
     } else {
       console.log(`You scored ${playerTally.length} points.`);
     }
+    //this block just makes printed result grammatically correct
       if (computerTally.length === 1) {
       console.log(`The computer scored ${computerTally.length} point.`);
     } else {
@@ -78,8 +79,10 @@
 
       if (playerTally.length > computerTally.length) {
       console.log('GAME OVER: YOU WON!');
-    } else if (playerTally.length < computerTally.length) {   console.log('GAME OVER: YOU LOST.');
-    } else if (playerTally.length === computerTally.length) {console.log('GAME OVER: It\'s a tie!');
+    } else if (playerTally.length < computerTally.length) {
+      console.log('GAME OVER: YOU LOST.');
+    } else if (playerTally.length === computerTally.length) {
+      console.log('GAME OVER: It\'s a tie!');
     } 
 
     } 
