@@ -1,5 +1,6 @@
 // Rock, Paper, Scissors
 
+// create function to get a random choice by computer
   function getComputerChoice() {
     let compChoices = []; 
     const choice1 = 'ROCK'; 
@@ -10,6 +11,7 @@
     return computerSelection; 
 }
 
+// create function to compare player choice and computer    choice and to play one iteration of game
   function playGame(playerSelection, computerSelection) { 
    
     playerSelection = playerSelection.toUpperCase();
@@ -37,6 +39,7 @@
 } 
 }
 
+//create function to iterate through 5 instances of the game
   function game() {
     const gameArray = []; 
     const playerTally = []; 
