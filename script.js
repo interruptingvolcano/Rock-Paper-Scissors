@@ -19,55 +19,95 @@ function getComputerChoice() {
 // Remember to be careful not to call the function in different places
 
 
-let playerSelection = prompt('Please enter your choice');
-if (playerSelection !== null) {
-  playGame(playerSelection, getComputerChoice() )
-} else {
-  alert('Refresh page!');
-}
+// let playerSelection = prompt('Please enter your choice');
+// if (playerSelection !== null) {
+//   playGame(playerSelection, getComputerChoice() )
+// } else {
+//   alert('Refresh page!');
+// }
+
+
 
   function playGame(playerSelection, computerSelection) { 
    
-  computerSelection = getComputerChoice();
   playerSelection = playerSelection.toUpperCase();
 
     if (playerSelection === "ROCK" && computerSelection === 'SCISSORS') {
-    console.log('Computer chose Scissors and you chose Rock. You win! Rock beats Scissors');
+    return 'Computer chose Scissors and you chose Rock. You win! Rock beats Scissors';
 
-}   else if (playerSelection === "PAPER" &&      computerSelection === 'SCISSORS') {
-    console.log('Computer chose Scissors and you chose Paper. You lose! Scissors beats Paper');
+}   else if (playerSelection === "PAPER" &&         computerSelection === 'SCISSORS') {
+    return 'Computer chose Scissors and you chose Paper. You lose! Scissors beats Paper';
 
 }   else if (playerSelection === "SCISSORS" && computerSelection === 'ROCK') {
-  console.log('Computer chose Rock and you chose Scissors. You lose! Rock beats Scissors');
+  return 'Computer chose Rock and you chose Scissors. You lose! Rock beats Scissors';
 
 }   else if (playerSelection === "ROCK" && computerSelection === "PAPER") {
-  console.log('Computer chose Paper and you chose Rock. You lose! Paper beats Rock');
+  return 'Computer chose Paper and you chose Rock. You lose! Paper beats Rock';
 
 }   else if (playerSelection === "PAPER" && computerSelection === 'ROCK') {
-  console.log('Computer chose Rock and you chose Paper. You win! Paper beats Rock');
+  return 'Computer chose Rock and you chose Paper. You win! Paper beats Rock';
 
 }   else if (playerSelection === "SCISSORS" &&    computerSelection === 'PAPER') {
-  console.log('Computer chose Paper and you chose Scissors. You win! Scissors beats Paper');
+  return 'Computer chose Paper and you chose Scissors. You win! Scissors beats Paper';
   
 }   else if (playerSelection === computerSelection) {
-  console.log(`Computer chose ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} and you chose ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}. It\'s a tie!`);
+  return `Computer chose ${computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase()} and you chose ${playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1).toLowerCase()}. It\'s a tie!`;
 } 
 
   else { 
-    alert("Please enter a choice of 'Rock', 'Paper', or 'Scissors'");
+    return `invalid choice. You lose a turn`;
 }
    
 }
 
 
+  function game() {
+    const gameArray = [];
+    const playerTally = [];
+    const computerTally = [];
+    for (i = 0; i < 5; i++) {
+      let userChoice = (prompt('Enter a choice.'));
+      let computerChoice = getComputerChoice();
 
+      
+      if (userChoice === null) {
+        console.log(`You cancelled. You lose a turn.`);
+        computerTally.push(1);
+        gameArray.push(userChoice); 
 
+      } else {
+      console.log(playGame(userChoice, computerChoice));
+      gameArray.push(userChoice);
+        if (playGame(userChoice, computerChoice).includes('win')) {
+        playerTally.push(1);
+      } else if (playGame(userChoice, computerChoice).includes    ('lose')) {
+      computerTally.push(1);
+      }
+    }
+    } 
 
+   if (playerTally.length === 1) {
+    console.log(`You scored ${playerTally.length} point.`);
+   } else {
+    console.log(`You scored ${playerTally.length} points.`);
+   }
 
+   if (computerTally.length === 1) {
+    console.log(`The computer scored ${computerTally.length} point.`);
+   } else {
+    console.log(`The computer scored ${computerTally.length} points.`);
+  }
+   
+   if (playerTally.length > computerTally.length) {
+    console.log('GAME OVER: YOU WON!');
+   } else if (playerTally.length < computerTally.length) {
+    console.log('GAME OVER: YOU LOST.');
+   } else if (playerTally.length === computerTally.length) { console.log('GAME OVER: It\'s a tie!');
+   } 
 
- 
- 
- 
+   } 
+  game();
+  
 
 
 
