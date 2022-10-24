@@ -1,24 +1,14 @@
-// This is the Rock, Paper, Scissors program
+// Rock, Paper, Scissors
 
-// create function called getComputerChoice that randomly returns 'Rock', 'Paper', or 'Scissors'. First, create an array, then create variables for each choice and put them in the array. Then find and return a random value from the array. Use .length to return a string value.
-
-function getComputerChoice() {
-  let compChoices = [];
-  const choice1 = 'ROCK';
-  const choice2 = 'PAPER';
-  const choice3 = 'SCISSORS';
-  compChoices.push(choice1, choice2, choice3);
-  let computerSelection = compChoices[Math.floor(Math.random() * compChoices.length)];
-  return computerSelection;
+  function getComputerChoice() {
+    let compChoices = []; 
+    const choice1 = 'ROCK'; 
+    const choice2 = 'PAPER';
+    const choice3 = 'SCISSORS';
+    compChoices.push(choice1, choice2, choice3); 
+    let computerSelection = compChoices[Math.floor(Math.random() * compChoices.length)]; 
+    return computerSelection; 
 }
-
-
-
-// Take input/choice from user. Write a function called 'playGame' that plays a single round of Rock Paper Scissors. First, take user choice and compare with computer choice. Rock beats scissors, scissor beats paper, paper beats rock
-
-// Remember to be careful not to call the function in different places
-
-
 
   function playGame(playerSelection, computerSelection) { 
    
@@ -27,7 +17,7 @@ function getComputerChoice() {
     if (playerSelection === "ROCK" && computerSelection === 'SCISSORS') {
     return 'Computer chose Scissors and you chose Rock. You win! Rock beats Scissors';
 
-}   else if (playerSelection === "PAPER" && computerSelection === 'SCISSORS') {
+}   else if (playerSelection === "PAPER" & computerSelection === 'SCISSORS') {
     return 'Computer chose Scissors and you chose Paper. You lose! Scissors beats Paper';
 
 }   else if (playerSelection === "SCISSORS" && computerSelection === 'ROCK') {
@@ -48,11 +38,11 @@ function getComputerChoice() {
 }
 
   function game() {
-    const gameArray = [];
-    const playerTally = [];
-    const computerTally = [];
+    const gameArray = []; 
+    const playerTally = []; 
+    const computerTally = []; 
     
-    while (gameArray.length < 5) {
+    while (gameArray.length < 5) { 
       let userChoice = (prompt('Enter a choice.'));
       let computerChoice = getComputerChoice();
      
@@ -61,12 +51,13 @@ function getComputerChoice() {
       } else if (userChoice.toUpperCase() !== 'ROCK' && userChoice.toUpperCase() !== 'PAPER' && userChoice.toUpperCase() !== 'SCISSORS') {
         console.log('Invalid choice. Try again.');
       } else {
-        console.log(playGame(userChoice, computerChoice));
-        gameArray.push(userChoice);
+          console.log(playGame(userChoice, computerChoice));
+          gameArray.push(userChoice);
           if (playGame(userChoice, computerChoice).includes('win')) {
           playerTally.push(1);
-      } else if (playGame(userChoice, computerChoice).     includes('lose')) {
-        computerTally.push(1);
+      }   else if (playGame(userChoice, computerChoice)
+          .includes('lose')) {
+          computerTally.push(1);
       }
       }
     } 
@@ -76,18 +67,16 @@ function getComputerChoice() {
     } else {
       console.log(`You scored ${playerTally.length} points.`);
     }
-
       if (computerTally.length === 1) {
       console.log(`The computer scored ${computerTally.length} point.`);
     } else {
       console.log(`The computer scored ${computerTally.length} points.`);
     }
-   
+
       if (playerTally.length > computerTally.length) {
       console.log('GAME OVER: YOU WON!');
-    } else if (playerTally.length < computerTally.length) {
-    console.log('GAME OVER: YOU LOST.');
-    } else if (playerTally.length === computerTally.length) {console.log('GAME     OVER: It\'s a tie!');
+    } else if (playerTally.length < computerTally.length) {   console.log('GAME OVER: YOU LOST.');
+    } else if (playerTally.length === computerTally.length) {console.log('GAME OVER: It\'s a tie!');
     } 
 
     } 
