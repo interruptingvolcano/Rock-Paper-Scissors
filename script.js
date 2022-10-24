@@ -9,7 +9,7 @@ function getComputerChoice() {
   const choice3 = 'SCISSORS';
   compChoices.push(choice1, choice2, choice3);
   let computerSelection = compChoices[Math.floor(Math.random() * compChoices.length)];
-  return computerSelection
+  return computerSelection;
 }
 
 
@@ -17,14 +17,6 @@ function getComputerChoice() {
 // Take input/choice from user. Write a function called 'playGame' that plays a single round of Rock Paper Scissors. First, take user choice and compare with computer choice. Rock beats scissors, scissor beats paper, paper beats rock
 
 // Remember to be careful not to call the function in different places
-
-
-// let playerSelection = prompt('Please enter your choice');
-// if (playerSelection !== null) {
-//   playGame(playerSelection, getComputerChoice() )
-// } else {
-//   alert('Refresh page!');
-// }
 
 
 
