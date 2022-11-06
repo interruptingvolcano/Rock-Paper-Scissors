@@ -47,29 +47,58 @@ let playerTally = [];
 let computerTally = [];
 let tieTally = []
 
+
 // Function when Rock is clicked
 function playRock(e) {
+  
+
+if (gameArray.length === 5) {
+    gameOver();
+    rBtn.removeEventListener('click', playRock);
+    pBtn.removeEventListener('click', playPaper);
+    sBtn.removeEventListener('click', playScissors);
+
+    return;
+  }
+else if (gameArray.length < 5 && gameArray.length !== 4) {
+   
+
   let computerChoice = getComputerChoice();
   const para = document.querySelector('p');
   para.textContent += `${(playGame('rock', computerChoice))}\r\n`;
-  gameArray.push(1);
 
   
     if (playGame('rock', computerChoice).includes('win')) {
     playerTally.push(1);
+    
     } else if (playGame('rock', computerChoice).includes('lose')) {
     computerTally.push(1);
     } else if (playGame('rock', computerChoice).includes('tie')) {
     tieTally.push(1);
-    }
-    
+    } 
+  
   const playerScore = document.querySelector('#playerScore');
   playerScore.textContent = `${playerTally.length}`;
 
   const computerScore = document.querySelector('#computerScore');
   computerScore.textContent = `${computerTally.length}`;
-  
+
+
+  gameArray.push(1);
   return e;
+
+} else if (gameArray.length < 5 && gameArray. length === 4) {
+  let computerChoice = getComputerChoice();
+  const para = document.querySelector('p');
+  para.textContent += `${(playGame('rock', computerChoice))}\r\n`;
+
+  sBtn.removeEventListener('click', playScissors);
+  rBtn.removeEventListener('click', playRock);
+  pBtn.removeEventListener('click', playPaper);
+  gameOver();
+
+}
+
 }
 
 rBtn.addEventListener('click', playRock);
@@ -77,10 +106,21 @@ rBtn.addEventListener('click', playRock);
 
 // Function when Paper is clicked
 function playPaper(e) {
+  
+  if (gameArray.length === 5) {
+    gameOver();
+    pBtn.removeEventListener('click', playPaper);
+    rBtn.removeEventListener('click', playRock);
+    sBtn.removeEventListener('click', playScissors);
+
+    return;
+  }
+else if (gameArray.length < 5 && gameArray.length !== 4) {
+   
   let computerChoice = getComputerChoice();
   const para = document.querySelector('p');
   para.textContent += `${(playGame('paper', computerChoice))}\r\n`;
-  gameArray.push(1);
+  
     
       if (playGame('paper', computerChoice).includes('win')) {
       playerTally.push(1);
@@ -89,14 +129,35 @@ function playPaper(e) {
       } else if (playGame('paper', computerChoice).includes('tie')) {
       tieTally.push(1);
       }
-     
+  
+if (gameArray.length === 5) {
+  sBtn.removeEventListener('click', playScissors);
+  rBtn.removeEventListener('click', playRock);
+  pBtn.removeEventListener('click', playPaper);
+  gameOver();
+  }
+
+    
   const playerScore = document.querySelector('#playerScore');
   playerScore.textContent = `${playerTally.length}`;
 
   const computerScore = document.querySelector('#computerScore');
   computerScore.textContent = `${computerTally.length}`;
-
+  
+  gameArray.push(1);
   return e;
+
+} else if (gameArray.length < 5 && gameArray. length === 4) {
+  let computerChoice = getComputerChoice();
+  const para = document.querySelector('p');
+  para.textContent += `${(playGame('paper', computerChoice))}\r\n`;
+
+  sBtn.removeEventListener('click', playScissors);
+  rBtn.removeEventListener('click', playRock);
+  pBtn.removeEventListener('click', playPaper);
+  gameOver();
+
+}
 }
 
 pBtn.addEventListener('click', playPaper);
@@ -104,10 +165,20 @@ pBtn.addEventListener('click', playPaper);
 
 // Function when Scissors is clicked
 function playScissors(e) {
+  
+  if (gameArray.length === 5) {
+    gameOver();
+    sBtn.removeEventListener('click', playScissors);
+    rBtn.removeEventListener('click', playRock);
+    pBtn.removeEventListener('click', playPaper);
+
+    return;
+  }
+else if (gameArray.length < 5 && gameArray.length !== 4) {
+  
   let computerChoice = getComputerChoice();
   const para = document.querySelector('p');
   para.textContent += `${(playGame('scissors', computerChoice))}\r\n`;
-  gameArray.push(1);
   
     if (playGame('scissors', computerChoice).includes('win')) {
     playerTally.push(1);
@@ -115,17 +186,56 @@ function playScissors(e) {
     computerTally.push(1);
     } else if (playGame('scissors', computerChoice).includes('tie')) {
     tieTally.push(1);
-    }
+    } 
+  
+if (gameArray.length === 5) {
+    sBtn.removeEventListener('click', playScissors);
+    rBtn.removeEventListener('click', playRock);
+    pBtn.removeEventListener('click', playPaper);
+    gameOver();
+  }
   
   const playerScore = document.querySelector('#playerScore');
   playerScore.textContent = `${playerTally.length}`;
 
   const computerScore = document.querySelector('#computerScore');
   computerScore.textContent = `${computerTally.length}`;
-    
+  gameArray.push(1);
   return e;
+
+} else if (gameArray.length < 5 && gameArray. length === 4) {
+  let computerChoice = getComputerChoice();
+  const para = document.querySelector('p');
+  para.textContent += `${(playGame('scissors', computerChoice))}\r\n`;
+  
+  sBtn.removeEventListener('click', playScissors);
+  rBtn.removeEventListener('click', playRock);
+  pBtn.removeEventListener('click', playPaper);
+  gameOver();
+
 }
+
+}
+
 sBtn.addEventListener('click', playScissors);
+
+
+function gameOver() {
+  const over = document.querySelector('.over');
+  const para = document.createElement('p');
+  over.appendChild(para);
+  if (playerTally.length > computerTally.length) {
+    para.innerText = 'Game Over\r\n';
+    para.innerText = 'YOU WIN!!!';
+  } else if (computerTally.length > playerTally.length) {
+    para.innerText = 'Game Over\r\n';
+    para.innerText = 'YOU LOSE!!'
+  } else if (playerTally.length === computerTally.length) {
+    para.innerText = 'Game Over\r\n';
+    para.innerText = 'TIE GAME - PLAY AGAIN';
+  }
+
+}
 
 
 
@@ -187,7 +297,6 @@ sBtn.addEventListener('click', playScissors);
 
   // game();
   
-
 
 
 
