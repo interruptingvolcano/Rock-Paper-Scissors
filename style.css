@@ -1,23 +1,117 @@
-h1 {
-  color: blue;
-  text-align: center;
-  font-size: 36px;
+* {
+  box-sizing: border-box;
+  background-color:azure;
+  margin: 10px;
 }
+
+.container {
+  border: solid black 5px;
+  
+}
+
+h1 {
+  color: black;
+  text-align: center;
+  font-size: 75px;
+  font-family: Helvetica, sans-serif;
+  padding: 10px;
+}
+
+.subhead {
+  text-align: center;
+}
+
+
 
 button {
   font-size: 24px;
   
 }
 
+.rock {
+  background-image: url(images/rock.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 160px;
+  width: 200px;
+  border: none;
+}
+
+.paper {
+  background-image: url(images/paper.jpeg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 160px;
+  width: 200px;
+  border: none;
+}
+
+.scissors {
+  background-image: url(images/scissors.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  /* put the height and width of your image here */
+  height: 122px;
+  width: 225px;
+  border: none;
+  margin-top: 25px;
+  
+}
+
+
 .buttons {
   display: flex;
   justify-content: space-around;
 }
 
-p {
+.results p {
   text-align: center;
-  border: solid mistyrose 5px;
+  font-size: 20px;
+  font-style: italic;
+  font-family: Arial, Helvetica, sans-serif;
   height: 100px;
-  white-space: pre-line;
+  white-space: pre-wrap;
+
 }
+
+.tally {
+  
+  font-size: 32px;
+}
+
+#playerScore {
+  font-family:Arial, Helvetica, sans-serif;
+
+
+}
+
+#computerScore {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.startOver {
+  background-color: mistyrose; 
+}
+
+.bottom  {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bottom p {
+  font-size: 28px;
+  font-family:Arial, Helvetica, sans-serif
+}
+
+.final {
+  color: coral;
+  font-size: 48px;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+
 
