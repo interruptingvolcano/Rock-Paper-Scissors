@@ -4,6 +4,8 @@
   margin: 10px;
 }
 
+
+
 .container {
   border: solid black 5px;
   
@@ -13,12 +15,14 @@ h1 {
   color: black;
   text-align: center;
   font-size: 75px;
-  font-family: Helvetica, sans-serif;
+  font-family: 'Poppins';
   padding: 10px;
 }
 
 .subhead {
   text-align: center;
+  font-size: 20px;
+  font-family: 'poppins';
 }
 
 
@@ -64,13 +68,14 @@ button {
 .buttons {
   display: flex;
   justify-content: space-around;
+    
 }
 
 .results p {
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
   font-style: italic;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:monospace;
   height: 100px;
   white-space: pre-wrap;
 
@@ -82,7 +87,7 @@ button {
 }
 
 #playerScore {
-  font-family:Arial, Helvetica, sans-serif;
+  font-family:'poppins';
 
 
 }
@@ -101,15 +106,20 @@ button {
 }
 
 .bottom p {
-  font-size: 28px;
-  font-family:Arial, Helvetica, sans-serif
+  font-size: 24px;
+  
 }
 
+
+
 .final {
-  color: coral;
-  font-size: 48px;
+  color: rgb(243, 73, 12);
+  font-size: 60px;
   text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
+  font-style:oblique;
+  font-weight:700;
+  font-family: 'poppins';
+  font-stretch:wider;
 }
 
 
