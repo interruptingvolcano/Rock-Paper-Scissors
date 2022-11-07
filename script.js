@@ -1,13 +1,14 @@
 // ROCK, PAPER, SCISSORS
 
-// COMPUTER CHOICE -- create function to get a random choice by computer
+
+// Get random computer choice
   function getComputerChoice() {
     let compChoices = ['ROCK', 'PAPER', 'SCISSORS']; 
     let computerSelection = compChoices[Math.floor(Math.random() * compChoices.length)]; 
     return computerSelection; 
 }
 
-// COMPARE PLAYER CHOICE AND COMPUTER CHOICE: ONE ITERATION -- create function to compare player choice and computer    choice and to play one iteration of game
+// Compare player choice and computer choice
   function playGame(playerSelection, computerSelection) { 
    
     playerSelection = playerSelection.toUpperCase();
@@ -44,12 +45,11 @@ const sBtn = document.querySelector('.scissors');
 // Create arrays to store tallies
 let playerTally = []; 
 let computerTally = [];
-let tieTally = [];
 
 const bottom = document.querySelector('.bottom');
 
 
-// Function when Rock is clicked
+// When Rock is clicked:
 function playRock(e) {
   const rockAnim = document.querySelector('button.rock');
   rockAnim.classList.add('playing');
@@ -100,9 +100,7 @@ rBtn.addEventListener('mouseup', removeTransition);
 rBtn.addEventListener('mousedown', playRock);
 
 
-
-
-// Function when Paper is clicked
+// When Paper is clicked:
 function playPaper(e) {
  
 const paperAnim = document.querySelector('button.paper');
@@ -159,7 +157,7 @@ return e;
 pBtn.addEventListener('mousedown', playPaper);
 
 
-// Function when Scissors is clicked
+// When Scissors is clicked:
 function playScissors(e) {
   
 const scissorsAnim = document.querySelector('button.scissors');
@@ -208,11 +206,9 @@ sBtn.addEventListener('mouseup', removeTransition);
   return e;
 }
 
-
-
 sBtn.addEventListener('mousedown', playScissors);
 
-
+// Display winner
 function gameOver() {
   const over = document.querySelector('.over');
   const para = document.createElement('p');
@@ -226,7 +222,7 @@ function gameOver() {
   } 
 }
 
-
+// Refresh game
 const startOver = document.querySelector('.startOver');
 startOver.addEventListener('click', () => {
   window.location.reload();
