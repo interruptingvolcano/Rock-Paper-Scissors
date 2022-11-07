@@ -1,21 +1,25 @@
 * {
   box-sizing: border-box;
-  background-color:azure;
   margin: 10px;
+  
 }
 
+body {
+  background-color: black
+}
 
 
 .container {
   border: solid black 5px;
+  background-color: #d7f3f3;
   
 }
 
 h1 {
   color: black;
   text-align: center;
-  font-size: 75px;
-  font-family: 'Poppins';
+  font-size: 100px;
+  font-family: 'playground';
   padding: 10px;
 }
 
@@ -30,6 +34,12 @@ h1 {
 button {
   font-size: 24px;
   
+}
+
+.playing {
+  transform: scale(1.1);
+  border-color: rgb(241, 92, 75);
+  box-shadow: 0 0 1rem rgb(235, 99, 84);
 }
 
 .rock {
@@ -65,9 +75,12 @@ button {
 }
 
 
+
+
 .buttons {
   display: flex;
   justify-content: space-around;
+
     
 }
 
@@ -113,12 +126,12 @@ button {
 
 
 .final {
-  color: rgb(243, 73, 12);
-  font-size: 60px;
+  color: mistyrose;
+  font-size: 80px;
+  margin-top: 30px;
   text-align: center;
-  font-style:oblique;
   font-weight:700;
-  font-family: 'poppins';
+  font-family: 'playground';
   font-stretch:wider;
 }
 

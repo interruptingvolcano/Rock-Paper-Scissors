@@ -42,24 +42,20 @@ const pBtn = document.querySelector('.paper');
 const sBtn = document.querySelector('.scissors');
 
 // Create arrays to store tallies
-let gameArray = []; 
 let playerTally = []; 
 let computerTally = [];
 let tieTally = [];
 
 const bottom = document.querySelector('.bottom');
 
-const gameTally = document.createElement('p');
-gameTally.classList.add('.gmTally');
-bottom.appendChild(gameTally);
-
 
 // Function when Rock is clicked
 function playRock(e) {
+  const rockAnim = document.querySelector('button.rock');
+  rockAnim.classList.add('playing');
 
+if (playerTally.length < 5 && computerTally.length < 5) {
 
-if (gameArray.length < 5 && gameArray.length !== 4) {
-   
   let computerChoice = getComputerChoice();
   const para = document.querySelector('p');
   para.textContent = `${(playGame('rock', computerChoice))}\r\n`;
@@ -71,55 +67,48 @@ if (gameArray.length < 5 && gameArray.length !== 4) {
     } else if (playGame('rock', computerChoice).includes('tie')) {
     tieTally.push(1);
     } 
+    
   
-  const playerScore = document.querySelector('#playerScore');
-  playerScore.textContent = `Your Score:  ${playerTally.length}`;
-  const computerScore = document.querySelector('#computerScore');
-  computerScore.textContent = `Computer's Score: ${computerTally.length}`;
+      if (playerTally.length === 5 || computerTally.length === 5) {
+      
+      const playerScore = document.querySelector('#playerScore');
+      playerScore.textContent = `Your Score:  ${playerTally.length}`;
+      const computerScore = document.querySelector('#computerScore');
+      computerScore.textContent = `Computer's Score: ${computerTally.length}`;
+      gameOver();
 
-  gameArray.push(1);
-  gameTally.textContent = `Game Count: ${gameArray.length}`
-  
+      sBtn.removeEventListener('mousedown', playScissors);
+      rBtn.removeEventListener('mousedown', playRock);
+      pBtn.removeEventListener('mousedown', playPaper);
+    
+      } else {
+      const playerScore = document.querySelector('#playerScore');
+      playerScore.textContent = `Your Score:  ${playerTally.length}`;
+      const computerScore = document.querySelector('#computerScore');
+      computerScore.textContent = `Computer's Score: ${computerTally.length}`;
+      }
+}
+function removeTransition() {
+  const rockAnim = document.querySelector('button.rock');
+  rockAnim.classList.remove('playing');
+}
+rBtn.addEventListener('mouseup', removeTransition); 
+
   return e;
-
-} else if (gameArray.length < 5 && gameArray. length === 4) {
-  
-  let computerChoice = getComputerChoice();
-  const para = document.querySelector('p');
-  para.textContent = `${(playGame('rock', computerChoice))}\r\n`;
-
-  if (playGame('rock', computerChoice).includes('win')) {
-    playerTally.push(1);
-    } else if (playGame('rock', computerChoice).includes('lose')) {
-    computerTally.push(1);
-    } else if (playGame('rock', computerChoice).includes('tie')) {
-    tieTally.push(1);
-    } 
-
-    const playerScore = document.querySelector('#playerScore');
-    playerScore.textContent = `Your Score:  ${playerTally.length}`;
-    const computerScore = document.querySelector('#computerScore');
-    computerScore.textContent = `Computer's Score: ${computerTally.length}`;
-
-  sBtn.removeEventListener('click', playScissors);
-  rBtn.removeEventListener('click', playRock);
-  pBtn.removeEventListener('click', playPaper);
-  gameOver();
-
-  gameArray.push(1);
-  gameTally.textContent = `Game Count: ${gameArray.length}`
-  
-
 }
 
-}
-rBtn.addEventListener('click', playRock);
+rBtn.addEventListener('mousedown', playRock);
+
+
 
 
 // Function when Paper is clicked
 function playPaper(e) {
+ 
+const paperAnim = document.querySelector('button.paper');
+paperAnim.classList.add('playing');
   
-if (gameArray.length < 5 && gameArray.length !== 4) {
+if (playerTally.length < 5 && computerTally.length < 5) {
    
   let computerChoice = getComputerChoice();
   const para = document.querySelector('p');
@@ -134,52 +123,49 @@ if (gameArray.length < 5 && gameArray.length !== 4) {
       tieTally.push(1);
       }
    
-  const playerScore = document.querySelector('#playerScore');
-  playerScore.textContent = `Your Score:  ${playerTally.length}`;
-
-  const computerScore = document.querySelector('#computerScore');
-  computerScore.textContent = `Computer's Score: ${computerTally.length}`;
   
-  gameArray.push(1);
-  gameTally.textContent = `Game Count: ${gameArray.length}`
-  return e;
-
-} else if (gameArray.length < 5 && gameArray. length === 4) {
-  let computerChoice = getComputerChoice();
-  const para = document.querySelector('p');
-  para.textContent = `${(playGame('paper', computerChoice))}\r\n`;
-
-  if (playGame('paper', computerChoice).includes('win')) {
-    playerTally.push(1);
-    } else if (playGame('paper', computerChoice).includes('lose')) {
-    computerTally.push(1);
-    } else if (playGame('paper', computerChoice).includes('tie')) {
-    tieTally.push(1);
-    }
-
-    const playerScore = document.querySelector('#playerScore');
-    playerScore.textContent = `Your Score:  ${playerTally.length}`;
+      if (playerTally.length === 5 || computerTally.length === 5) {
+      
+        const playerScore = document.querySelector('#playerScore');
+        playerScore.textContent = `Your Score:  ${playerTally.length}`;
+        const computerScore = document.querySelector('#computerScore');
+        computerScore.textContent = `Computer's Score: ${computerTally.length}`;
+        gameOver();
   
-    const computerScore = document.querySelector('#computerScore');
-    computerScore.textContent = `Computer's Score: ${computerTally.length}`;
+        sBtn.removeEventListener('mousedown', playScissors);
+        rBtn.removeEventListener('mousedown', playRock);
+        pBtn.removeEventListener('mousedown', playPaper);
+       
+        } else {
+        const playerScore = document.querySelector('#playerScore');
+        playerScore.textContent = `Your Score:  ${playerTally.length}`;
+        const computerScore = document.querySelector('#computerScore');
+        computerScore.textContent = `Computer's Score: ${computerTally.length}`;
+        }
+  
+}
 
-  sBtn.removeEventListener('click', playScissors);
-  rBtn.removeEventListener('click', playRock);
-  pBtn.removeEventListener('click', playPaper);
-  gameOver();
-
-  gameArray.push(1);
-  gameTally.textContent = `Game Count: ${gameArray.length}`
+function removeTransition() {
+  const paperAnim = document.querySelector('button.paper');
+  paperAnim.classList.remove('playing');
 
 }
+pBtn.addEventListener('mouseup', removeTransition); 
+
+return e;
+
 }
-pBtn.addEventListener('click', playPaper);
+
+pBtn.addEventListener('mousedown', playPaper);
 
 
 // Function when Scissors is clicked
 function playScissors(e) {
   
-if (gameArray.length < 5 && gameArray.length !== 4) {
+const scissorsAnim = document.querySelector('button.scissors');
+scissorsAnim.classList.add('playing');
+
+if (playerTally.length < 5 && computerTally.length < 5) {
   
   let computerChoice = getComputerChoice();
   const para = document.querySelector('p');
@@ -193,45 +179,38 @@ if (gameArray.length < 5 && gameArray.length !== 4) {
     tieTally.push(1);
     } 
   
-  const playerScore = document.querySelector('#playerScore');
-  playerScore.textContent = `Your Score:  ${playerTally.length}`;
+    if (playerTally.length === 5 || computerTally.length === 5) {
+      
+      const playerScore = document.querySelector('#playerScore');
+      playerScore.textContent = `Your Score:  ${playerTally.length}`;
+      const computerScore = document.querySelector('#computerScore');
+      computerScore.textContent = `Computer's Score: ${computerTally.length}`;
+      gameOver();
 
-  const computerScore = document.querySelector('#computerScore');
-  computerScore.textContent = `Computer's Score: ${computerTally.length}`;
-  gameArray.push(1);
-  gameTally.textContent = `Game Count: ${gameArray.length}`
+      sBtn.removeEventListener('mousedown', playScissors);
+      rBtn.removeEventListener('mousedown', playRock);
+      pBtn.removeEventListener('mousedown', playPaper);
+    
+      } else {
+      const playerScore = document.querySelector('#playerScore');
+      playerScore.textContent = `Your Score:  ${playerTally.length}`;
+      const computerScore = document.querySelector('#computerScore');
+      computerScore.textContent = `Computer's Score: ${computerTally.length}`;
+      }
+} 
+
+function removeTransition() {
+  const scissorsAnim = document.querySelector('button.scissors');
+  scissorsAnim.classList.remove('playing');
+}
+sBtn.addEventListener('mouseup', removeTransition);
+
   return e;
-
-} else if (gameArray.length < 5 && gameArray. length === 4) {
-  let computerChoice = getComputerChoice();
-  const para = document.querySelector('p');
-  para.textContent = `${(playGame('scissors', computerChoice))}\r\n`;
-
-  if (playGame('scissors', computerChoice).includes('win')) {
-    playerTally.push(1);
-    } else if (playGame('scissors', computerChoice).includes('lose')) {
-    computerTally.push(1);
-    } else if (playGame('scissors', computerChoice).includes('tie')) {
-    tieTally.push(1);
-    } 
-
-    const playerScore = document.querySelector('#playerScore');
-    playerScore.textContent = `Your Score:  ${playerTally.length}`;
-  
-    const computerScore = document.querySelector('#computerScore');
-    computerScore.textContent = `Computer's Score: ${computerTally.length}`;
-
-  sBtn.removeEventListener('click', playScissors);
-  rBtn.removeEventListener('click', playRock);
-  pBtn.removeEventListener('click', playPaper);
-  gameOver();
-
-  gameArray.push(1);
-  gameTally.textContent = `Game Count: ${gameArray.length}`
-
 }
-}
-sBtn.addEventListener('click', playScissors);
+
+
+
+sBtn.addEventListener('mousedown', playScissors);
 
 
 function gameOver() {
@@ -240,20 +219,20 @@ function gameOver() {
   para.classList.add('final');
   over.appendChild(para);
   if (playerTally.length > computerTally.length) {
-    para.innerText = 'Game Over  -  YOU WIN!';
+    para.innerText = '🎉Game Over  -  YOU WON!🎉';
+
   } else if (computerTally.length > playerTally.length) {
-    para.innerText = 'Game Over  -  COMPUTER WINS!'
-  } else if (playerTally.length === computerTally.length) {
-    para.innerText = 'Game Over  -  It\'s a tie!';
-  }
+    para.innerText = '💻Game Over  -  COMPUTER WON!💻'
+  } 
 }
+
 
 const startOver = document.querySelector('.startOver');
 startOver.addEventListener('click', () => {
   window.location.reload();
 })
 
-gameTally.textContent = `Game Count: 0`
+
 
 
 
